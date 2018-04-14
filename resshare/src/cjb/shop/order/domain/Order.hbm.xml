@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 1 配置类和表对应 
+		class标签
+		name属性：实体类全路径
+		table属性：数据库表名称
+	-->
+	<class name="cjb.shop.order.domain.Order" table="orders">
+		<id name="oid">
+			<generator class="native"/>
+		</id>
+		
+		<property name="total"/>
+		<property name="ordertime"/>
+		<property name="state"/>
+		<property name="name"/>
+		<property name="phone"/>
+		<property name="address"/>
+		
+		<!-- 订单与用户关联配置 -->
+		<many-to-one name="user" lazy="false" class="cjb.shop.user.domain.User" column="uid"/>
+	
+		<!-- 订单与订单项关联配置 -->
+		<set name="orderItems"    lazy="false" cascade="save-update">
+			<key column="oid"/>
+			<one-to-many class="cjb.shop.order.domain.OrderItem"/>
+		</set>
+	</class>
+</hibernate-mapping>
+
+
+
+
+

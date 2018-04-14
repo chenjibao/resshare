@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 注入属性值 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql:///resshare"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="cjb19950615"></property>
+	</bean>
+	<!-- sessionFactory创建交给spring管理 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 配置Hibernate的其他的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		
+		<!-- 配置映射文件引入 -->
+		<property name="mappingResources">
+			<list>
+				<value>cjb/shop/user/domain/User.hbm.xml</value>
+				<value>cjb/shop/category/domain/Category.hbm.xml</value>
+				<value>cjb/shop/product/domain/Product.hbm.xml</value>
+				<value>cjb/shop/categorysecond/domain/CategorySecond.hbm.xml</value>
+				<value>cjb/shop/order/domain/Order.hbm.xml</value>
+				<value>cjb/shop/order/domain/OrderItem.hbm.xml</value>
+				<value>cjb/shop/adminuser/domain/AdminUser.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 第一步 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- 第二步 开启事务注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<!-- 注入sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	
+	<!-- Action的配置 ======================================================================-->
+	<!-- 首页访问的Action -->
+	<bean id="indexAction" class="cjb.shop.index.action.IndexAction" scope="prototype">
+		<property name="categoryService" ref="categoryService"/>
+		<property name="productService" ref="productService"/>
+	</bean>
+	
+	<!-- 配置验证码Action -->
+	<bean id="checkImgAction" class="cjb.shop.user.action.CheckImgAction" scope="prototype">
+		
+	</bean>
+	
+	<!-- 用户模块的Action -->
+	<bean id="userAction" class="cjb.shop.user.action.UserAction" scope="prototype">
+		<!-- 注入Service -->
+		<property name="userService" ref="userService"/>
+	</bean>
+	
+	<!-- 一级分类的Action -->
+	<bean id="categoryAction" class="cjb.shop.category.action.CategoryAction" scope="prototype">
+	</bean>
+	
+	<!-- 商品的Action-->
+	<bean id="productAction" class="cjb.shop.product.action.ProductAction" scope="prototype">
+		<property name="productService" ref="productService"/>
+	</bean>
+	
+	<!-- 购物车的Action-->
+	<bean id="cartAction" class="cjb.shop.cart.action.CartAction" scope="prototype">
+		<property name="productService" ref="productService"/>
+	</bean>
+	
+	<!-- 订单的Action-->
+	<bean id="orderAction" class="cjb.shop.order.action.OrderAction" scope="prototype">
+		<property name="orderService" ref="orderService"/>
+	</bean>
+	
+	<!-- 后台用户的Action-->
+	<bean id="adminUserAction" class="cjb.shop.adminuser.action.AdminUserAction" scope="prototype">
+		<property name="adminUserService" ref="adminUserService"/>
+	</bean>
+	
+	<!-- 后台管理一级分类的Action-->
+	<bean id="adminCategoryAction" class="cjb.shop.category.adminaction.AdminCategoryAction" scope="prototype">
+		<property name="categoryService" ref="categoryService"/>
+	</bean>
+	
+	<!-- 后台管理二级分类的Action-->
+	<bean id="adminCategorySecondAction" class="cjb.shop.categorysecond.adminaction.AdminCategorySecondAction" scope="prototype">
+		<property name="categorySecondService" ref="categorySecondService"/>
+		<property name="categoryService" ref="categoryService"/>
+	</bean>
+	
+	<!-- 后台管理商品的Action-->
+	<bean id="adminProductAction" class="cjb.shop.product.adminaction.AdminProductAction" scope="prototype">
+		<property name="productService" ref="productService"/>
+		<property name="categorySecondService" ref="categorySecondService"/>
+	</bean>
+	
+	<!-- 订单管理的Action-->
+	<bean id="adminOrderAction" class="cjb.shop.order.adminaction.AdminOrderAction" scope="prototype">
+		<property name="orderService" ref="orderService"/>
+	</bean>
+	
+	<!-- 后台用户管理的Action-->
+	<bean id="userAdminAction" class="cjb.shop.user.adminaction.UserAdminAction" scope="prototype">
+		<property name="userService" ref="userService"/>
+	</bean>
+	
+	<!-- Service的配置 ======================================================================-->
+	<bean id="userService" class="cjb.shop.user.service.UserService">
+		<property name="userDao" ref="userDao"/>
+	</bean>
+	
+	<bean id="categoryService" class="cjb.shop.category.service.CategoryService">
+		<property name="categoryDao" ref="categoryDao"/>
+	</bean>
+	
+	<bean id="productService" class="cjb.shop.product.service.ProductService">
+		<property name="productDao" ref="productDao"/>
+	</bean>
+	
+	<bean id="orderService" class="cjb.shop.order.service.OrderService">
+		<property name="orderDao" ref="orderDao"/>
+	</bean>
+	
+	<bean id="adminUserService" class="cjb.shop.adminuser.service.AdminUserService">
+		<property name="adminUserDao" ref="adminUserDao"/>
+	</bean>
+	
+	<bean id="categorySecondService" class="cjb.shop.categorysecond.service.CategorySecondService">
+		<property name="categorySecondDao" ref="categorySecondDao"/>
+	</bean>
+	
+	
+	<!-- Dao的配置 ======================================================================-->
+	<bean id="userDao" class="cjb.shop.user.dao.UserDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<bean id="categoryDao" class="cjb.shop.category.dao.CategoryDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<bean id="productDao" class="cjb.shop.product.dao.ProductDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<bean id="orderDao" class="cjb.shop.order.dao.OrderDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<bean id="adminUserDao" class="cjb.shop.adminuser.dao.AdminUserDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<bean id="categorySecondDao" class="cjb.shop.categorysecond.dao.CategorySecondDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
