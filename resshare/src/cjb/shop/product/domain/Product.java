@@ -25,7 +25,22 @@ public class Product {
 	private String image;
 	private String pdesc;
 	private Integer is_hot;
-	private Date pdate;
+	private java.sql.Date pdate;
+	private String url;
+	private Integer downloadnum;
+	
+	public Integer getDownloadnum() {
+		return downloadnum;
+	}
+	public void setDownloadnum(Integer downloadnum) {
+		this.downloadnum = downloadnum;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	private CategorySecond categorySecond;//商品所属的二级分类
 	
 	public CategorySecond getCategorySecond() {
@@ -79,7 +94,7 @@ public class Product {
 	public Date getPdate() {
 		return pdate;
 	}
-	public void setPdate(Date pdate) {
+	public void setPdate(java.sql.Date  pdate) {
 		this.pdate = pdate;
 	}
 	

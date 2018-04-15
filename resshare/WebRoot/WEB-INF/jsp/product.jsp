@@ -4,25 +4,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>筛宝商城</title>
+<title>瑞尚程序员</title>
 <link href="${pageContext.request.contextPath}/css/common.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/css/product.css" rel="stylesheet" type="text/css">
 <script>
-	function saveCart(){
-		 document.getElementById("cartForm").submit(); 
-		/* window.location.href = "https://pan.baidu.com/s/1j9uA9mLOGxuioSJuRA3L0g"; */
-		
-	}
-	function addCategory(){
-		window.location.href = "${pageContext.request.contextPath}/admin/category/add.jsp";
-	}
+function saveCart(){
+	 document.getElementById("cartForm").submit();
+	
+}
 </script>
 
 </head>
 <body>
 
 <div class="container header">
-	<div class="span5">
+	<%-- <div class="span5">
 		<div class="logo">
 			<a>
 				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="筛宝商城">
@@ -32,7 +28,7 @@
 	<div class="span9">
 <div class="headerAd">
 					<img src="image\r___________renleipic_01/header.jpg" alt="正品保障" title="正品保障" height="50" width="320">
-</div>	</div>
+</div>	</div> --%>
 
 <%@ include file="menu.jsp" %>
 
@@ -63,12 +59,8 @@
 					</a>
 				
 			</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div>&nbsp;</div>
-			<div class="name"><s:property value="model.pname"/></div>
-			<div class="sn">
+			<%-- <div class="name"><s:property value="model.pname"/></div> --%>
+			<%-- <div class="sn">
 				<div>编号：<s:property value="model.pid"/></div>
 			</div>
 			<div class="info">
@@ -92,41 +84,45 @@
 							<span>    </span>
 						</dd>
 					</dl>
-			</div>
-			<form id="cartForm" action="${ pageContext.request.contextPath }/cart_addCart.action" method="post" >
+			</div> --%>
+			<form id="cartForm" action="<s:property value="model.url"/>" method="post" target="_blank">
 				<input type="hidden" name="pid" value="<s:property value="model.pid"/>"/>
 				<div class="action">
-						<dl class="quantity">
-							<dt>购买数量:</dt>
-							<dd>
-								<input id="count" name="count" value="1" maxlength="4" onpaste="return false;" type="text"/>
-							</dd>
-							<dd>
-								件
-							</dd>
-						</dl>
-						
-					<div class="buy">
-							<input id="addCart" class="addCart" value="加入购物车" type="button" onclick="saveCart()"/>
-					</div>
+					<div>&nbsp;</div>
+					<div>&nbsp;</div>
+					<div>&nbsp;</div>
+					<div>&nbsp;</div>
+					<div align="center" class="name"><s:property value="model.pname"/>:&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/product_updateDownloadNum.action?downloadnum=<s:property value="model.downloadnum"/>&pid=<s:property value="model.pid"/>&url=<s:property value="model.url"/>"/><font color="blue">百度云盘下载</font></a></div>
+					<%-- <div align="center" class="name"><s:property value="model.pname"/>:&nbsp;&nbsp;&nbsp;<a href=<s:property value="model.url"/> target="_blank"><font color="blue">百度云盘下载</font></a></div> --%>
+					<div>&nbsp;</div>
+					<div>&nbsp;</div>
+					<div>&nbsp;</div>
+					<div>&nbsp;</div>
 				</div>
 			</form>
-			<div id="bar" class="bar">
+			<div  id="bar" class="bar">
 				<ul>
-						<li id="introductionTab">
-							<a href="#introduction">商品详情</a>
+						<li  id="introductionTab">
+							<a href="#introduction">教程详情</a>
 						</li>
 						
 				</ul>
 			</div>
-				
-				<div id="introduction" name="introduction" class="introduction">
-					<div class="title">
-						<strong><font color="blue"><s:property value="model.pdesc"/></font></strong>
-					</div>
-					<div align="center">
+				<!-- <div align="center" id="introduction" name="introduction" class="introduction"> -->
+				<div align="center" id="introduction" name="introduction" class="introduction">
+					<%-- <div class="title">
+						<strong><font color="blue"><pre><s:property value="model.pdesc"/></pre></font></strong>
+					</div> --%>
+					<%-- <p><s:property value="model.pdesc"/></p> --%>
+					
+					<textarea style="overflow:auto" disabled="disabled" class="boxes" name="pdesc" rows="50" cols="102"><s:property value="model.pdesc"/></textarea>
+					
+					<%-- <strong><s:property value="model.pdesc"/></strong>
+					<p><s:property value="model.pdesc"/></p>
+					<pre> <font color="grey" size="5"> <s:property value="model.pdesc"/></font></pre> --%>
+					<%-- <div align="center">
 						<img src="${pageContext.request.contextPath }/<s:property value="model.image"/>">
-					</div>
+					</div> --%>
 				</div>
 				
 				
@@ -161,14 +157,14 @@
 						<a>友情链接</a>
 						|
 					</li>
-					<li>
+					<!-- <li>
 						<a target="_blank">支付方式</a>
 						|
 					</li>
 					<li>
 						<a target="_blank">配送方式</a>
 						|
-					</li>
+					</li> -->
 					<li>
 						<a href="http://www.cumt.edu.cn/">矿大官网</a>
 						|

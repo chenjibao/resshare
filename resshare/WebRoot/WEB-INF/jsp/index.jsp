@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>筛宝商城</title>
+<title>瑞尚程序员</title>
 <link href="${pageContext.request.contextPath}/css/slider.css"
 	rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/common.css"
@@ -17,22 +17,24 @@
 <body>
 
 	<div class="container header">
-		<div class="span5">
+		<%-- <div class="span5">
 			<div class="logo">
 				<a href="${pageContext.request.contextPath}/index.action"> <img
 					src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif"
-					alt="筛宝商城" />
+					alt="瑞尚程序员" />
 				</a>
 			</div>
-		</div>
-		<div class="span9">
+			
+		</div> --%>
+		
+		<%--  <div class="span9">
 			<div class="headerAd">
-				<img src="${pageContext.request.contextPath}/image/header.jpg"
-					width="320" height="50" alt="正品保障" title="正品保障" />
+				<img src="${pageContext.request.contextPath}/image/header.gif"
+					width="320" height="50" alt="瑞尚程序员" title="瑞尚程序员" />
 			</div>
-
-		</div>
-		<%@ include file="menu.jsp"%>
+		</div> --%>
+		
+		<%@ include file="menu.jsp"%> 
 	</div>
 
 	<div class="container index">
@@ -41,7 +43,7 @@
 		<div class="span24">
 			<div id="hotProduct" class="hotProduct clearfix">
 				<div class="title">
-					<strong>热门商品</strong>
+					<strong>热门教程</strong>
 					<!-- <a  target="_blank"></a> -->
 				</div>
 				<ul class="tab">
@@ -58,7 +60,9 @@
 						<li><a href="${pageContext.request.contextPath}/product_findByPid.action?pid=<s:property value="#product.pid"/>" target="_blank"><img
 								src="${pageContext.request.contextPath}/<s:property value="#product.image"/>"
 								data-original="http://storage.shopxx.net/demo-image/3.0/201301/0ff130db-0a1b-4b8d-a918-ed9016317009-thumbnail.jpg"
-								style="display: block;"></a></li>
+								style="display: block;"></a>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="red"><s:property value="#product.downloadnum"/>人学习过</font>
+						</li>
 					</s:iterator>
 				</ul>
 				<ul class="tabContent" style="display: none;">
@@ -134,7 +138,7 @@
 		<div class="span24">
 			<div id="newProduct" class="newProduct clearfix">
 				<div class="title">
-					<strong>最新商品</strong> <a target="_blank"></a>
+					<strong>最新教程</strong> <a target="_blank"></a>
 				</div>
 				<ul class="tab">
 					<li class="current"><a href=""
@@ -150,6 +154,7 @@
 					<s:iterator var="product" value="nList">
 					<li>	
 						<a href="${pageContext.request.contextPath}/product_findByPid.action?pid=<s:property value="#product.pid"/>" target="_blank"><img src="${pageContext.request.contextPath}/<s:property value="#product.image"/>" data-original="http://storage.shopxx.net/demo-image/3.0/201301/4a51167a-89d5-4710-aca2-7c76edc355b8-thumbnail.jpg" style="display: block;"></a>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="red"><s:property value="#product.downloadnum"/>人学习过</font>
 					</li>
 					</s:iterator>
 				</ul>
@@ -227,24 +232,24 @@
 			<div class="friendLink">
 				<dl>
 					<dt>新手指南</dt>
-					<dd>
+					<!-- <dd>
 						<a target="_blank">支付方式</a> |
-					</dd>
-					<dd>
+					</dd> -->
+				<!-- 	<dd>
 						<a target="_blank">配送方式</a> |
-					</dd>
-					<dd>
+					</dd> -->
+					<!-- <dd>
 						<a target="_blank">售后服务</a> |
-					</dd>
-					<dd>
+					</dd> -->
+				<!-- 	<dd>
 						<a target="_blank">购物帮助</a> |
-					</dd>
+					</dd> -->
 					<dd>
 						<a target="_blank">礼品卡</a> |
 					</dd>
-					<dd>
+					<!-- <dd>
 						<a target="_blank">银联卡</a> |
-					</dd>
+					</dd> -->
 					<dd class="more">
 						<a>更多</a>
 					</dd>
@@ -253,12 +258,12 @@
 		</div>
 	</div>
 	<div class="container footer">
-		<div class="span24">
+		<%-- <div class="span24">
 			<div class="footerAd">
 				<img src="${pageContext.request.contextPath}/image/footer.jpg"
 					width="950" height="52" alt="我们的优势" title="我们的优势">
 			</div>
-		</div>
+		</div> --%>
 		<div class="span24">
 			<ul class="bottomNav">
 				<li>
@@ -281,14 +286,14 @@
 						<a>友情链接</a>
 						|
 					</li>
-					<li>
+					<!-- <li>
 						<a target="_blank">支付方式</a>
 						|
-					</li>
-					<li>
+					</li> -->
+					<!-- <li>
 						<a target="_blank">配送方式</a>
 						|
-					</li>
+					</li> -->
 					<li>
 						<a href="http://www.cumt.edu.cn/">矿大官网</a>
 						|

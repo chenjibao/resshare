@@ -1,5 +1,9 @@
 package cjb.shop.product.action;
 
+import java.io.IOException;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -93,6 +97,13 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		//将pageBean存入到值栈中
 		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
 		return "findByCsid";
+	}
+	//更新教程下载量
+	public void updateDownloadNum() throws IOException{
+		product=productService.findByPid(product.getPid());
+		product.setDownloadnum(product.getDownloadnum()+1);
+		productService.update(product);
+		ServletActionContext.getResponse().sendRedirect(product.getUrl());
 	}
 
 }

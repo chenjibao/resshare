@@ -81,7 +81,7 @@
 </head>
 <body>
 <div class="container header">
-	<div class="span5">
+	<%-- <div class="span5">
 		<div class="logo">
 			<a href="http://localhost:8080/mango/">
 				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="筛宝商城">
@@ -89,9 +89,10 @@
 		</div>
 	</div>
 	<div class="span9">
-<div class="headerAd">
-					<img src="${pageContext.request.contextPath}/image/header.jpg" width="320" height="50" alt="正品保障" title="正品保障">
-</div>	</div>
+		<div class="headerAd">
+							<img src="${pageContext.request.contextPath}/image/header.jpg" width="320" height="50" alt="正品保障" title="正品保障">
+		</div>	
+	</div> --%>
 	
 	<%@ include file="menu.jsp" %>
 
@@ -214,19 +215,19 @@
 		注册即享受
 	</dt>
 	<dd>
-		正品保障、正规发票
+		全站共享，海量资源
 	</dd>
 	<dd>
-		货到付款、会员服务
+		从入门到精通，自己就是老师
 	</dd>
 	<dd>
-		自由退换、售后上门
+		下载到本地，随时随地
 	</dd>
 </dl>
 </div>							<dl>
 								<dt>已经拥有账号了？</dt>
 								<dd>
-									立即登录即可体验在线购物！
+									立即登录即可学习！
 									<a href="${pageContext.request.contextPath}/user_loginPage.action">立即登录</a>
 								</dd>
 							</dl>
@@ -238,9 +239,10 @@
 	</div>
 <div class="container footer">
 	<div class="span24">
-		<div class="footerAd">
+		<%-- <div class="footerAd">
 					<img src="${pageContext.request.contextPath}/image/footer.jpg" width="950" height="52" alt="我们的优势" title="我们的优势">
-</div>	</div>
+		</div>	 --%>
+	</div>
 	<div class="span24">
 		<ul class="bottomNav">
 					<li>
@@ -263,14 +265,14 @@
 						<a>友情链接</a>
 						|
 					</li>
-					<li>
+					<!-- <li>
 						<a target="_blank">支付方式</a>
 						|
 					</li>
 					<li>
 						<a target="_blank">配送方式</a>
 						|
-					</li>
+					</li> -->
 					<li>
 						<a href="http://www.cumt.edu.cn/">矿大官网</a>
 						|

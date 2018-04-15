@@ -16,7 +16,7 @@
 		<!--二级分类与一级分类的关联-->
 		<many-to-one name="category" class="cjb.shop.category.domain.Category" column="cid" lazy="false"></many-to-one>
 		<!--二级分类与商品的关联 配置cascade级联删除-->
-		<set name="products" cascade="delete" lazy="false" order-by="pid">
+		<set name="products" cascade="delete" lazy="false" order-by="pid" >
 			<key column="csid"></key>
 			<one-to-many class="cjb.shop.product.domain.Product"/>
 		</set>

@@ -1161,7 +1161,7 @@ div.productContent .buy .addProductNotify {
 	border: none;
 	background: url(../images/product.gif) 0px -600px no-repeat;
 }
-
+.boxes{font-size:16px; color:black;}
 div.productContent .buy .addCart {
 	width: 127px;
 	height: 36px;

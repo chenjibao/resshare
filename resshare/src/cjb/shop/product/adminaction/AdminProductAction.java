@@ -8,7 +8,6 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 import org.aspectj.util.FileUtil;
 
-import com.mchange.io.FileUtils;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -89,7 +88,8 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 	// 保存商品的方法:
 		public String save() throws IOException {
 			// 将提交的数据添加到数据库中.
-			product.setPdate(new Date());
+			product.setPdate(new java.sql.Date(new Date().getTime()));
+			product.setDownloadnum(0);
 			// product.setImage(image);
 			if(upload != null){
 				// 将商品图片上传到服务器上.
@@ -134,7 +134,7 @@ public class AdminProductAction extends ActionSupport implements ModelDriven<Pro
 		// 修改商品的方法
 		public String update() throws IOException {
 			// 将信息修改到数据库
-			product.setPdate(new Date());
+			product.setPdate(new java.sql.Date(new Date().getTime()));
 			
 			// 上传:
 			if(upload != null ){

@@ -21,7 +21,7 @@ function change(){
 <body>
 
 <div class="container header">
-	<div class="span5">
+	<%-- <div class="span5">
 		<div class="logo">
 			<a href="http://localhost:8080/mango/">
 				<img src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif" alt="筛宝商城">
@@ -29,9 +29,10 @@ function change(){
 		</div>
 	</div>
 	<div class="span9">
-<div class="headerAd">
-					<img src="${pageContext.request.contextPath}/image/header.jpg" width="320" height="50" alt="正品保障" title="正品保障">
-</div>	</div>
+		<div class="headerAd">
+							<img src="${pageContext.request.contextPath}/image/header.jpg" width="320" height="50" alt="正品保障" title="正品保障">
+		</div>	
+</div> --%>
 
 	<%@ include file="menu.jsp" %>
 	
@@ -105,8 +106,8 @@ function change(){
 									<dl>
 										<dt>还没有注册账号？</dt>
 										<dd>
-											立即注册即可体验在线购物！
-											<a href="./会员注册.htm">立即注册</a>
+											立即注册即可下载海量免费学习资源！
+											<a href="${ pageContext.request.contextPath }/user_registPage.action">立即注册</a>
 										</dd>
 									</dl>
 								</td>
@@ -118,9 +119,9 @@ function change(){
 		</div>
 	</div>
 <div class="container footer">
-	<div class="span24">
+	<%-- <div class="span24">
 	  <div class="footerAd"><img src="${pageContext.request.contextPath}/image/footer.jpg" width="950" height="52" alt="我们的优势" title="我们的优势" /></div>	
-	</div>
+	</div> --%>
 	<div class="span24">
 		<ul class="bottomNav">
 					<li>
@@ -143,14 +144,14 @@ function change(){
 						<a>友情链接</a>
 						|
 					</li>
-					<li>
+					<!-- <li>
 						<a target="_blank">支付方式</a>
 						|
-					</li>
-					<li>
+					</li> -->
+					<!-- <li>
 						<a target="_blank">配送方式</a>
 						|
-					</li>
+					</li> -->
 					<li>
 						<a href="http://www.cumt.edu.cn/">矿大官网</a>
 						|

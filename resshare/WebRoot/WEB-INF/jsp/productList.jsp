@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>筛宝商城</title>
+<title>瑞尚程序员</title>
 <link href="${pageContext.request.contextPath}/css/common.css"
 	rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/css/product.css"
@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="container header">
-		<div class="span5">
+		<%-- <div class="span5">
 			<div class="logo">
 				<a href="http://localhost:8080/mango/"> <img
 					src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.gif"
@@ -28,7 +28,7 @@
 				<img src="${pageContext.request.contextPath}/image/header.jpg"
 					width="320" height="50" alt="正品保障" title="正品保障">
 			</div>
-		</div>
+		</div> --%>
 
 		<%@ include file="menu.jsp"%>
 
@@ -64,8 +64,8 @@
 						<li><a href="${pageContext.request.contextPath}/product_findByPid.action?pid=<s:property value="#p.pid"/>"> <img
 								src="${pageContext.request.contextPath}/<s:property value="#p.image"/>"
 								width="170" height="170" style="display: inline-block;"> <span
-								style='color:green'><s:property value="#p.pname"/></span> <span class="price">
-									商城价： ￥<s:property value="#p.shop_price"/></span>
+								style='color:green'><font size="3" color="blue"><s:property value="#p.pname"/></font></span> <span class="price">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="#p.downloadnum"/>人学习过</span>
 						</a></li>
 					</s:iterator>
 					</ul>
@@ -118,10 +118,10 @@
 	</div>
 	<div class="container footer">
 		<div class="span24">
-			<div class="footerAd">
+			<%-- <div class="footerAd">
 				<img src="${pageContext.request.contextPath}/image/footer.jpg"
 					width="950" height="52" alt="我们的优势" title="我们的优势">
-			</div>
+			</div> --%>
 		</div>
 		<div class="span24">
 			<ul class="bottomNav">
@@ -145,14 +145,14 @@
 						<a>友情链接</a>
 						|
 					</li>
-					<li>
+					<!-- <li>
 						<a target="_blank">支付方式</a>
 						|
 					</li>
 					<li>
 						<a target="_blank">配送方式</a>
 						|
-					</li>
+					</li> -->
 					<li>
 						<a href="http://www.cumt.edu.cn/">矿大官网</a>
 						|
