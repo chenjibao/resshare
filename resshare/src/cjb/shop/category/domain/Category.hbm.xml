@@ -15,7 +15,7 @@
 		<property name="cname" column="cname"></property>
 		
 		<!--配置二级分类的集合  配置cascade级联删除-->
-		<set name="categorySeconds" cascade="delete" lazy="false" order-by="csid" >
+		<set name="categorySeconds" cascade="delete" lazy="false" order-by="csid">
 			<key column="cid"></key>
 			<one-to-many class="cjb.shop.categorysecond.domain.CategorySecond"/>
 		</set>

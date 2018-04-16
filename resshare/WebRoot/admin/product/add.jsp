@@ -73,7 +73,7 @@
 				</tr>
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						教程目录：
+						教程详情：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
 						<textarea name="pdesc" rows="5" cols="30"></textarea>

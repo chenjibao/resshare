@@ -115,7 +115,7 @@ function saveCart(){
 					</div> --%>
 					<%-- <p><s:property value="model.pdesc"/></p> --%>
 					
-					<textarea style="overflow:auto" disabled="disabled" class="boxes" name="pdesc" rows="50" cols="102"><s:property value="model.pdesc"/></textarea>
+					<textarea style="overflow:auto" disabled="disabled" class="boxes" name="pdesc" rows="94" cols="102"><s:property value="model.pdesc"/></textarea>
 					
 					<%-- <strong><s:property value="model.pdesc"/></strong>
 					<p><s:property value="model.pdesc"/></p>
