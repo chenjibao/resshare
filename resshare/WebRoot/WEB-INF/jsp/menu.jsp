@@ -5,7 +5,6 @@
 					src="${pageContext.request.contextPath}/image/r___________renleipic_01/logo.png"
 					alt="瑞尚程序员" />
 				</a>
-				
 			</div>
 			
 		</div>
@@ -16,16 +15,11 @@
 		<div class="topNav clearfix">
 		
 			<ul>
-<!-- 			<li id="headerRegister" class="headerRegister"
-					style="display: list-item;">&nbsp;&nbsp;&nbsp;|
+ 			<li id="headerRegister" class="headerRegister">
+ 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			</li>
-			<li id="headerRegister" class="headerRegister"
-					style="display: list-item;">&nbsp;&nbsp;&nbsp;|
-			</li>
-			<li id="headerRegister" class="headerRegister"
-					style="display: list-item;">&nbsp;&nbsp;&nbsp;|
-			</li>
- -->			<s:if test="#session.existUser == null">
+			
+			<s:if test="#session.existUser == null">
 				<li id="headerLogin" class="headerLogin" style="display: list-item;">
 					<a href="${ pageContext.request.contextPath }/user_loginPage.action">登录</a>|</li>
 				<li id="headerRegister" class="headerRegister"
@@ -52,8 +46,16 @@
 						<li>
 							<a href="https://github.com/chenjibao">关于我们</a>
 						</li>
+						
 			</ul>
 		</div>
+		<div class="top-search"> 
+				 <form class="navbar-form navbar-right">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="text" class="form-control" placeholder="Search...">
+					<input type="submit" value="搜索">
+				</form>
+		 </div> 
 		<%-- <div class="cart">
 			<a  href="${pageContext.request.contextPath}/cart_myCart.action">购物车</a>
 		</div> --%>
