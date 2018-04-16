@@ -131,9 +131,9 @@ function saveCart(){
 	</div>
 <div class="container footer">
 	<div class="span24">
-		<div class="footerAd">
+		<!-- <div class="footerAd">
 					<img src="image\r___________renleipic_01/footer.jpg" alt="我们的优势" title="我们的优势" height="52" width="950">
-</div>
+		</div> -->
 </div>
 	<div class="span24">
 		<ul class="bottomNav">
