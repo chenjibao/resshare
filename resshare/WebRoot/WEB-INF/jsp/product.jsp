@@ -110,19 +110,7 @@ function saveCart(){
 			</div>
 				<!-- <div align="center" id="introduction" name="introduction" class="introduction"> -->
 				<div align="center" id="introduction" name="introduction" class="introduction">
-					<%-- <div class="title">
-						<strong><font color="blue"><pre><s:property value="model.pdesc"/></pre></font></strong>
-					</div> --%>
-					<%-- <p><s:property value="model.pdesc"/></p> --%>
-					
 					<textarea style="overflow:auto" disabled="disabled" class="boxes" name="pdesc" rows="94" cols="102"><s:property value="model.pdesc"/></textarea>
-					
-					<%-- <strong><s:property value="model.pdesc"/></strong>
-					<p><s:property value="model.pdesc"/></p>
-					<pre> <font color="grey" size="5"> <s:property value="model.pdesc"/></font></pre> --%>
-					<%-- <div align="center">
-						<img src="${pageContext.request.contextPath }/<s:property value="model.image"/>">
-					</div> --%>
 				</div>
 				
 				
