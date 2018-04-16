@@ -26,6 +26,13 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	private CategoryService categoryService;
 	//注入当前页数
 	private int page;
+	//注入searchkey
+	private String searchkey;
+	
+	public void setSearchkey(String searchkey) {
+		this.searchkey = searchkey;
+	}
+
 	private Integer csid;
 	public Integer getCsid() {
 		return csid;
@@ -104,6 +111,13 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		product.setDownloadnum(product.getDownloadnum()+1);
 		productService.update(product);
 		ServletActionContext.getResponse().sendRedirect(product.getUrl());
+	}
+	//搜索教程的方法
+	public String findByProductPartName(){
+		PageBean<Product> pageBean=productService.findByProductPartName(searchkey,page);
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		ActionContext.getContext().getValueStack().set("searchkey", searchkey);
+		return "findByProductPartName";
 	}
 
 }

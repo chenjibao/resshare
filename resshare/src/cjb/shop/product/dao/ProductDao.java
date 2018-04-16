@@ -67,7 +67,7 @@ public class ProductDao {
 		if(list!=null && list.size()>0){
 			return list.get(0).intValue();
 		}
-;		return 0;
+		return 0;
 	}
 	/**
 	 * 根据一级分类id查询商品的集合
@@ -145,6 +145,24 @@ public class ProductDao {
 	}
 	public void update(Product product) {
 		hibernateTemplate.update(product);
+	}
+	//	dao层按searchkey统计教程个数的方法
+	public int findTotalCountBySearchkey(String searchkey) {
+		String hql="select count(*) from Product p where p.pname like '%"+searchkey+"%'";
+		List<Long> list=(List<Long>) hibernateTemplate.find(hql);
+		if(list!=null && list.size()>0){
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+	//使用searchkey查询教程集合
+	public List<Product> findByPageSearchkey(String searchkey, int begin, int limit) {
+		String hql="from Product where pname like '%"+searchkey+"%'";
+		List<Product> list=(List<Product>) hibernateTemplate.execute((HibernateCallback<Product>) new PageHibernateCallback(hql, null, begin, limit));
+		if(list!=null && list.size()>0){
+			return list;
+		}
+		return null;
 	}
 	
 	

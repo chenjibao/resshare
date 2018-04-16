@@ -148,6 +148,33 @@ public class ProductService {
 	public void update(Product product) {
 		productDao.update(product);
 	}
+	public PageBean<Product> findByProductPartName(String searchkey, int page) {
+		PageBean<Product> pageBean=new PageBean<Product>();
+		//设置当前页数
+		pageBean.setPage(page);
+		//设置每页显示记录数
+		int limit=8;
+		pageBean.setLimit(limit);
+		//设置总记录数
+		int totalCount=0;
+		totalCount=productDao.findTotalCountBySearchkey(searchkey);
+		pageBean.setTotalCount(totalCount);
+		//设置总页数
+		int totalPage=0;
+//		totalPage=(int) Math.ceil(totalCount/limit);向上取整
+		if(totalCount/limit==0){
+			totalPage=totalCount/limit;
+		}else{
+			totalPage=totalCount/limit+1;
+		}
+		pageBean.setTotalPage(totalPage);
+		
+		//设置每页显示的数据集合
+		int begin=(page-1)*limit;
+		List<Product> list=productDao.findByPageSearchkey(searchkey,begin,limit);
+		pageBean.setList(list);
+		return pageBean;
+	}
 	
 
 }

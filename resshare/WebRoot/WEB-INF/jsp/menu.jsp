@@ -50,9 +50,9 @@
 			</ul>
 		</div>
 		<div class="top-search"> 
-				 <form class="navbar-form navbar-right">
+				 <form action="${pageContext.request.contextPath}/product_findByProductPartName.action?page=1" class="navbar-form navbar-right">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="text" class="form-control" placeholder="Search...">
+					<input name="searchkey" type="text" class="form-control" placeholder="Search...">
 					<input type="submit" value="搜索">
 				</form>
 		 </div> 

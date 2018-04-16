@@ -72,6 +72,7 @@
 				</div>
 				<div class="pagination">
 					<span>第 <s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/> 页</span>
+					
 		<s:if test="cid != null">
 			<s:if test="pageBean.page != 1">
 				<a href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=1" class="firstPage">&nbsp;</a>
@@ -92,7 +93,10 @@
 				<a class="lastPage" href="${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
 			</s:if>
 		</s:if>	
-		<s:if test="csid != null">
+		
+		
+		
+	 <s:if test="csid != null"> 
 			<s:if test="pageBean.page != 1">
 				<a href="${ pageContext.request.contextPath }/product_findByCsid.action?csid=<s:property value="csid"/>&page=1" class="firstPage">&nbsp;</a>
 				<a href="${ pageContext.request.contextPath }/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
@@ -111,7 +115,29 @@
 				<a class="nextPage" href="${ pageContext.request.contextPath }/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
 				<a class="lastPage" href="${ pageContext.request.contextPath }/product_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
 			</s:if>
-		</s:if>	
+		 </s:if>	
+		
+		<s:if test="searchkey!=null">
+			<s:if test="pageBean.page != 1">
+				<a href="${ pageContext.request.contextPath }/product_findByProductPartName.action?searchkey=<s:property value="searchkey"/>&page=1" class="firstPage">&nbsp;</a>
+				<a href="${ pageContext.request.contextPath }/product_findByProductPartName.action?searchkey=<s:property value="searchkey"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
+			</s:if>
+			
+			<s:iterator var="i" begin="1" end="pageBean.totalPage">
+				<s:if test="pageBean.page != #i">
+					<a href="${ pageContext.request.contextPath }/product_findByProductPartName.action?searchkey=<s:property value="searchkey"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
+				</s:if>
+				<s:else>
+					<span class="currentPage"><s:property value="#i"/></span>
+				</s:else>
+			</s:iterator>
+			
+			<s:if test="pageBean.page != pageBean.totalPage">	
+				<a class="nextPage" href="${ pageContext.request.contextPath }/product_findByProductPartName.action?searchkey=<s:property value="searchkey"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
+				<a class="lastPage" href="${ pageContext.request.contextPath }/product_findByProductPartName.action?searchkey=<s:property value="searchkey"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
+			</s:if>
+		</s:if>
+		
 				</div>
 			</form>
 		</div>
