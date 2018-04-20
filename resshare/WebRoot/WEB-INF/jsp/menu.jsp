@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 	<div class="span5">
 			<div class="logo">
 				<a href="${pageContext.request.contextPath}/index.action"> <img
@@ -46,24 +47,16 @@
 						<li>
 							<a href="https://github.com/chenjibao">关于我们</a>
 						</li>
-						
 			</ul>
 		</div>
 		<div class="top-search"> 
 				 <form action="${pageContext.request.contextPath}/product_findByProductPartName.action?page=1" class="navbar-form navbar-right">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input name="searchkey" type="text" class="form-control" placeholder="Search...">
 					<input type="submit" value="搜索">
 				</form>
 		 </div> 
-		<%-- <div class="cart">
-			<a  href="${pageContext.request.contextPath}/cart_myCart.action">购物车</a>
-		</div> --%>
-			<!--  <div class="phone"> 
-				客服热线:
-				<strong>17327364980</strong>
-			 </div>  -->
 	</div>
+	
 	<div class="span24">
 		<ul class="mainNav">
 					<li>
