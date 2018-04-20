@@ -19,7 +19,7 @@
 				<TBODY>
 					<tr>
 						<td class="ta_01" align="center" bgColor="#afd1f3">
-							<strong>商品列表</strong>
+							<strong>教程列表</strong>
 						</TD>
 					</tr>
 					<tr>
@@ -42,14 +42,14 @@
 										序号
 									</td>
 									<td align="center" width="17%">
-										商品图片
+										教程图片
 									</td>
 									<td align="center" width="17%">
-										商品名称
+										教程名称
 									</td>
-									<td align="center" width="17%">
+									<!-- <td align="center" width="17%">
 										商品价格
-									</td>
+									</td> -->
 									<td align="center" width="17%">
 										是否热门
 									</td>
@@ -75,10 +75,10 @@
 												width="17%">
 												<s:property value="#p.pname"/>
 											</td>
-											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+											<%-- <td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
 												<s:property value="#p.shop_price"/>
-											</td>
+											</td> --%>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
 												<s:if test="#p.is_hot==1">
