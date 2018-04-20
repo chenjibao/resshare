@@ -4,6 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Language" content="zh-cn">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>瑞尚程序员</title>
 		<style type="text/css">
 BODY {
 	MARGIN: 0px;

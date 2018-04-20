@@ -4,6 +4,7 @@
 	<HEAD>
 		<meta http-equiv="Content-Language" content="zh-cn">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>瑞尚程序员</title>
 		<LINK href="${pageContext.request.contextPath}/css/Style1.css" type="text/css" rel="stylesheet">
 	</HEAD>
 	
