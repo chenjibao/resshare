@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import cjb.shop.category.service.CategoryService;
 import cjb.shop.product.domain.Product;
 import cjb.shop.product.service.ProductService;
+import cjb.shop.user.domain.User;
 import cjb.shop.utils.PageBean;
 /**
  * @author chenjibao
@@ -106,11 +107,18 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		return "findByCsid";
 	}
 	//更新教程下载量
-	public void updateDownloadNum() throws IOException{
-		product=productService.findByPid(product.getPid());
-		product.setDownloadnum(product.getDownloadnum()+1);
-		productService.update(product);
-		ServletActionContext.getResponse().sendRedirect(product.getUrl());
+	public String updateDownloadNum() throws IOException{
+		User user=(User) ServletActionContext.getRequest().getSession().getAttribute("existUser");
+		if(user!=null){
+			product=productService.findByPid(product.getPid());
+			product.setDownloadnum(product.getDownloadnum()+1);
+			productService.update(product);
+			ServletActionContext.getResponse().sendRedirect(product.getUrl());
+		}else{
+			this.addActionMessage("您还没有登录，请登录后再下载教程！");
+			return "msg";
+		}
+		return null;
 	}
 	//搜索教程的方法
 	public String findByProductPartName(){
